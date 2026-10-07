@@ -1,0 +1,1110 @@
+{
+ "generatedAt": "2026-10-09T17:32:15.787503+00:00",
+ "logEnd": "2026-09-16T01:35:51.603000+00:00",
+ "fleetScore": 58,
+ "gpa": 2.65,
+ "counts": {
+  "high": 0,
+  "medium": 6,
+  "low": 16,
+  "info": 2
+ },
+ "findings": [
+  {
+   "id": "failing-6",
+   "category": "failing",
+   "severity": "medium",
+   "bot": "Brief",
+   "title": "Brief: \u201cMorning attention brief\u201d missed 2 of 4 scheduled runs",
+   "detail": "Logged between its first run and Tue Sep 15, 9:35 PM ET.",
+   "fix": "Check the schedule is still enabled and whether a run is being skipped (quiet hours, errors, or the bot being busy).",
+   "bots": [
+    "Brief"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "failing-7",
+   "category": "failing",
+   "severity": "medium",
+   "bot": "Boyd Family Times",
+   "title": "Family Times couldn't print 5 of the last 7 editions",
+   "detail": "PDF-only on 10-03, 10-04, 10-05, 10-06, 10-08 (printer offline). The latest edition, 10-08, was pdf-only.",
+   "fix": "Give the newspaper a printer-health preflight (wake the printer or fall back to a second printer) and have it tell Boyd when printing is skipped.",
+   "bots": [
+    "Boyd Family Times"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "watch-Bill Simmons Sunday 107 fifth pick",
+   "category": "failing",
+   "severity": "medium",
+   "bot": "Jim",
+   "bots": [
+    "Jim"
+   ],
+   "title": "Jim: watch \u201cBill Simmons Sunday 107 fifth pick\u201d already found its answer but is still scheduled",
+   "detail": "Its own state log says the condition was met on Sun Sep 20 (2 checks logged). It is still enabled on cron \u201c0 11,15 * * 0\u201d, about 2 wake(s) a week.",
+   "fix": "Suggestion: pause or delete this routine, or give the prompt an end date (\"stop after the pick is found\").",
+   "source": "Fleet Doctor checks"
+  },
+  {
+   "id": "err-Oscar",
+   "category": "failing",
+   "severity": "medium",
+   "bot": "Oscar",
+   "bots": [
+    "Oscar"
+   ],
+   "title": "Oscar: 8 tool calls errored (8 of 333 logged)",
+   "detail": "By app: Google Drive 8. Spread over 7 day(s), Aug 20 to Sep 15 ET. Most common: search_files (Google Drive).",
+   "fix": "Suggestion: check the Google Drive connection is still authorized, and add a line to the routine prompt like \"if Google Drive errors, say so once and stop instead of retrying\".",
+   "source": "Fleet Doctor checks"
+  },
+  {
+   "id": "err-Jim",
+   "category": "failing",
+   "severity": "medium",
+   "bot": "Jim",
+   "bots": [
+    "Jim"
+   ],
+   "title": "Jim: 11 tool calls errored (11 of 95 logged)",
+   "detail": "By app: Notion 7, X 3, other tool 1. Spread over 7 day(s), Aug 22 to Sep 15 ET. Most common: notion-update-page (Notion).",
+   "fix": "Suggestion: check the Notion connection is still authorized, and add a line to the routine prompt like \"if Notion errors, say so once and stop instead of retrying\".",
+   "source": "Fleet Doctor checks"
+  },
+  {
+   "id": "heavy-9",
+   "category": "heavy",
+   "severity": "medium",
+   "bot": "Oscar",
+   "title": "Oscar: \u201cDue-soon bills and money surprises\u201d \u2248 34 agent-minutes/week",
+   "detail": "5 runs/week \u00d7 ~6.8 min, with ~40 tool calls per run (\u2248200 per week).",
+   "fix": "To trim tokens: cache the gather step (reuse yesterday's sources and fetch only what's new); cap the run with a short checklist so it stops when the output is verified.",
+   "bots": [
+    "Oscar"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "dup-jim daily interest note",
+   "category": "duplication",
+   "severity": "low",
+   "bot": null,
+   "title": "Leftover paused copy of \u201cJim daily interest note\u201d",
+   "detail": "Exists on Michael (paused), Jim. Only Jim runs it, so the paused copy is clutter that could be re-enabled by mistake.",
+   "fix": "Delete the paused copy so Jim is the single owner.",
+   "bots": [
+    "Michael"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "dup-morning attention brief",
+   "category": "duplication",
+   "severity": "low",
+   "bot": null,
+   "title": "Leftover paused copy of \u201cMorning attention brief\u201d",
+   "detail": "Exists on Michael (paused), Brief. Only Brief runs it, so the paused copy is clutter that could be re-enabled by mistake.",
+   "fix": "Delete the paused copy so Brief is the single owner.",
+   "bots": [
+    "Michael"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "duplication-2",
+   "category": "duplication",
+   "severity": "low",
+   "bot": null,
+   "title": "Twin routines: \u201cVic weeknight homework check-in\u201d and \u201cChar weeknight homework check-in\u201d",
+   "detail": "Vic Tutor and Char Tutor run near-identical instructions (49% overlap). That's deliberate (one per kid), but fixes have to be made twice.",
+   "fix": "Move the shared rules into one skill or doc that both prompts reference, and keep only the kid-specific parts in each routine.",
+   "bots": [
+    "Char Tutor",
+    "Vic Tutor"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "duplication-3",
+   "category": "duplication",
+   "severity": "low",
+   "bot": null,
+   "title": "Oscar: \u201cWeekly household cash snapshot\u201d and \u201cWatch for Kia Finance statement\u201d fire within 20 minutes",
+   "detail": "Once in the next 7 days. Back-to-back runs usually re-gather the same context.",
+   "fix": "Merge them into one morning run, or stagger them so the second can reuse the first's results.",
+   "bots": [
+    "Oscar"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "duplication-4",
+   "category": "duplication",
+   "severity": "low",
+   "bot": null,
+   "title": "Oscar: \u201cWatch for Kia Finance statement\u201d and \u201cDue-soon bills and money surprises\u201d fire within 20 minutes",
+   "detail": "5 times in the next 7 days. Back-to-back runs usually re-gather the same context.",
+   "fix": "Merge them into one morning run, or stagger them so the second can reuse the first's results.",
+   "bots": [
+    "Oscar"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "duplication-5",
+   "category": "duplication",
+   "severity": "low",
+   "bot": null,
+   "title": "Dr. EggBot: \u201ctranscript-healthcheck\u201d and \u201croutine-healthcheck\u201d fire within 20 minutes",
+   "detail": "Once in the next 7 days. Back-to-back runs usually re-gather the same context.",
+   "fix": "Merge them into one morning run, or stagger them so the second can reuse the first's results.",
+   "bots": [
+    "Dr. EggBot"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "err-Michael",
+   "category": "failing",
+   "severity": "low",
+   "bot": "Michael",
+   "bots": [
+    "Michael"
+   ],
+   "title": "Michael: 8 tool calls errored (8 of 758 logged)",
+   "detail": "By app: X 4, Notion 2, built-in 1, Gmail 1. Spread over 5 day(s), Aug 27 to Sep 4 ET. Most common: get_users_me (X).",
+   "fix": "Suggestion: check the X connection is still authorized, and add a line to the routine prompt like \"if X errors, say so once and stop instead of retrying\".",
+   "source": "Fleet Doctor checks"
+  },
+  {
+   "id": "err-Pam",
+   "category": "failing",
+   "severity": "low",
+   "bot": "Pam",
+   "bots": [
+    "Pam"
+   ],
+   "title": "Pam: 4 tool calls errored (4 of 265 logged)",
+   "detail": "By app: Gmail (Miranda) 4. Spread over 4 day(s), Sep 7 to Sep 15 ET. Most common: search_threads (Gmail (Miranda)).",
+   "fix": "Suggestion: check the Gmail (Miranda) connection is still authorized, and add a line to the routine prompt like \"if Gmail (Miranda) errors, say so once and stop instead of retrying\".",
+   "source": "Fleet Doctor checks"
+  },
+  {
+   "id": "heavy-8",
+   "category": "heavy",
+   "severity": "low",
+   "bot": "Jim",
+   "title": "Jim: \u201cJim daily interest note\u201d \u2248 48 agent-minutes/week",
+   "detail": "7 runs/week \u00d7 ~6.9 min, with ~19 tool calls per run (\u2248133 per week).",
+   "fix": "To trim tokens: skip weekends or run every other day if the content allows; cap the run with a short checklist so it stops when the output is verified.",
+   "bots": [
+    "Jim"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "heavy-10",
+   "category": "heavy",
+   "severity": "low",
+   "bot": "Jim",
+   "title": "Jim: \u201cDaily podcast listen brief\u201d \u2248 29 agent-minutes/week",
+   "detail": "7 runs/week \u00d7 ~4.1 min, with ~13 tool calls per run (\u224891 per week).",
+   "fix": "To trim tokens: skip weekends or run every other day if the content allows; cap the run with a short checklist so it stops when the output is verified.",
+   "bots": [
+    "Jim"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "heavy-11",
+   "category": "heavy",
+   "severity": "low",
+   "bot": "Jim",
+   "title": "Jim: 50 min of screen-driving (computer use)",
+   "detail": "Driving a desktop takes screenshots every step and is the priciest way to read a page.",
+   "fix": "Swap repeat browsing for a script or a connector (e.g. turn the PowerSchool or X checks into a saved script).",
+   "bots": [
+    "Jim"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "heavy-12",
+   "category": "heavy",
+   "severity": "low",
+   "bot": "Vic Tutor",
+   "title": "Vic Tutor: 40 min of screen-driving (computer use)",
+   "detail": "Driving a desktop takes screenshots every step and is the priciest way to read a page.",
+   "fix": "Swap repeat browsing for a script or a connector (e.g. turn the PowerSchool or X checks into a saved script).",
+   "bots": [
+    "Vic Tutor"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "weekend-Vic weeknight homework check-in",
+   "category": "heavy",
+   "severity": "low",
+   "bot": "Vic Tutor",
+   "bots": [
+    "Vic Tutor"
+   ],
+   "title": "Vic Tutor: \u201cVic weeknight homework check-in\u201d also runs on weekends",
+   "detail": "The name says weeknight, but cron \u201c15 18 * * *\u201d fires every day: 2 weekend wake(s) a week (~1.8 agent-min).",
+   "fix": "Suggestion: if weekends really are off, Boyd could change the day field to Sun\u2013Thu (0-4) for school nights. Boyd and Miranda decide what the kids' schedule should be.",
+   "source": "Fleet Doctor checks"
+  },
+  {
+   "id": "weekend-Char weeknight homework check-in",
+   "category": "heavy",
+   "severity": "low",
+   "bot": "Char Tutor",
+   "bots": [
+    "Char Tutor"
+   ],
+   "title": "Char Tutor: \u201cChar weeknight homework check-in\u201d also runs on weekends",
+   "detail": "The name says weeknight, but cron \u201c45 17 * * *\u201d fires every day: 2 weekend wake(s) a week (~2.4 agent-min).",
+   "fix": "Suggestion: if weekends really are off, Boyd could change the day field to Sun\u2013Thu (0-4) for school nights. Boyd and Miranda decide what the kids' schedule should be.",
+   "source": "Fleet Doctor checks"
+  },
+  {
+   "id": "quiet-13",
+   "category": "quiet",
+   "severity": "low",
+   "bot": "Engineering Lead",
+   "title": "Engineering Lead has no activity on this box",
+   "detail": "No routines, tool calls, messages or output files were found locally.",
+   "fix": "Either give it a routine (a weekly check-in is enough to keep it useful) or archive it.",
+   "bots": [
+    "Engineering Lead"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "quiet-14",
+   "category": "quiet",
+   "severity": "low",
+   "bot": null,
+   "title": "Unfinished bot in the Hatchery: New Bot",
+   "detail": "It has no persona or description yet.",
+   "fix": "Ask Dr. EggBot to finish it, or delete it.",
+   "bots": [
+    "New Bot"
+   ],
+   "source": "Bot Island checks"
+  },
+  {
+   "id": "data-gap",
+   "category": "data",
+   "severity": "info",
+   "bot": null,
+   "bots": [
+    "Fleet-wide"
+   ],
+   "title": "Run history can only be measured through Tue Sep 15, 9:35 PM ET",
+   "detail": "The routine run logs and tool logs on this box stop on Tue Sep 15 (the box was restored from a snapshot on Oct 3). Missed or failed runs after that date can't be measured from disk, so they are not counted. Output files (newest Fri Oct 9, 1:32 PM ET) are used where available.",
+   "fix": "No fix needed. A live check (the routine-healthcheck skill reads live transcripts) would cover Sep 16 to today.",
+   "source": "Fleet Doctor checks"
+  },
+  {
+   "id": "long-Michael",
+   "category": "heavy",
+   "severity": "info",
+   "bot": "Michael",
+   "bots": [
+    "Michael"
+   ],
+   "title": "Michael has a long chat (664 transcript entries)",
+   "detail": "Its routines are paused, so this costs nothing on a schedule, but each new message re-reads a long history.",
+   "fix": "Suggestion: move standing routines to a fresh short-chat bot, or start a new chat for new projects.",
+   "source": "Fleet Doctor checks"
+  }
+ ],
+ "routines": [
+  {
+   "bot": "Michael",
+   "botId": "4feb1fc5-075b-4294-a694-3fa562e5785b",
+   "name": "Jim daily interest note",
+   "cron": "0 20 * * *",
+   "enabled": false,
+   "runs": 17,
+   "ok": 17,
+   "failed": 0,
+   "medianMinutes": 4.1,
+   "firesPerWeek": 7,
+   "minutesPerWeek": 28.7,
+   "toolCallsPerRun": 10,
+   "toolCallsPerWeek": 70,
+   "lastRun": "2026-09-08T00:26:46.392000Z",
+   "expected": 25,
+   "hit": 16
+  },
+  {
+   "bot": "Michael",
+   "botId": "4feb1fc5-075b-4294-a694-3fa562e5785b",
+   "name": "Morning attention brief",
+   "cron": "0 8 * * 1-5",
+   "enabled": false,
+   "runs": 13,
+   "ok": 13,
+   "failed": 0,
+   "medianMinutes": 2.0,
+   "firesPerWeek": 5,
+   "minutesPerWeek": 10.0,
+   "toolCallsPerRun": 21,
+   "toolCallsPerWeek": 105,
+   "lastRun": "2026-09-08T12:49:50.476000Z",
+   "expected": 17,
+   "hit": 12
+  },
+  {
+   "bot": "Oscar",
+   "botId": "5ea76ec0-2e44-46be-993a-11bc6ba30958",
+   "name": "Due-soon bills and money surprises",
+   "cron": "45 8 * * 1-5",
+   "enabled": true,
+   "runs": 2,
+   "ok": 2,
+   "failed": 0,
+   "medianMinutes": 6.8,
+   "firesPerWeek": 5,
+   "minutesPerWeek": 34.0,
+   "toolCallsPerRun": 40.0,
+   "toolCallsPerWeek": 200,
+   "lastRun": "2026-09-15T13:00:04.440000Z",
+   "expected": 1,
+   "hit": 1
+  },
+  {
+   "bot": "Oscar",
+   "botId": "5ea76ec0-2e44-46be-993a-11bc6ba30958",
+   "name": "Watch for Kia Finance statement",
+   "cron": "31 8 * * 1-5",
+   "enabled": true,
+   "runs": 16,
+   "ok": 16,
+   "failed": 0,
+   "medianMinutes": 0.9,
+   "firesPerWeek": 5,
+   "minutesPerWeek": 4.5,
+   "toolCallsPerRun": 6.5,
+   "toolCallsPerWeek": 32,
+   "lastRun": "2026-09-15T13:19:04.832000Z",
+   "expected": 17,
+   "hit": 15
+  },
+  {
+   "bot": "Oscar",
+   "botId": "5ea76ec0-2e44-46be-993a-11bc6ba30958",
+   "name": "Weekly household cash snapshot",
+   "cron": "15 8 * * 1",
+   "enabled": true,
+   "runs": 1,
+   "ok": 1,
+   "failed": 0,
+   "medianMinutes": 3.1,
+   "firesPerWeek": 1,
+   "minutesPerWeek": 3.1,
+   "toolCallsPerRun": 36,
+   "toolCallsPerWeek": 36,
+   "lastRun": "2026-09-14T12:39:42.836000Z",
+   "expected": 0,
+   "hit": 0
+  },
+  {
+   "bot": "Ryan",
+   "botId": "6a33ea82-5497-43fa-a644-aebed89a6bf6",
+   "name": "Weekly idea digest",
+   "cron": "0 7 * * 1",
+   "enabled": true,
+   "runs": 1,
+   "ok": 1,
+   "failed": 0,
+   "medianMinutes": 2.1,
+   "firesPerWeek": 1,
+   "minutesPerWeek": 2.1,
+   "toolCallsPerRun": 7,
+   "toolCallsPerWeek": 7,
+   "lastRun": "2026-09-14T11:07:55.841000Z",
+   "expected": 0,
+   "hit": 0
+  },
+  {
+   "bot": "Dr. EggBot",
+   "botId": "759c205a-40a5-4e74-9620-3c04714824f4",
+   "name": "routine-healthcheck",
+   "cron": "35 6 * * 1",
+   "enabled": true,
+   "runs": 2,
+   "ok": 2,
+   "failed": 0,
+   "medianMinutes": 1.6,
+   "firesPerWeek": 1,
+   "minutesPerWeek": 1.6,
+   "toolCallsPerRun": 4.5,
+   "toolCallsPerWeek": 4,
+   "lastRun": "2026-09-14T10:39:25.234000Z",
+   "expected": 1,
+   "hit": 1
+  },
+  {
+   "bot": "Dr. EggBot",
+   "botId": "759c205a-40a5-4e74-9620-3c04714824f4",
+   "name": "transcript-healthcheck",
+   "cron": "30 6 * * 1-5",
+   "enabled": true,
+   "runs": 7,
+   "ok": 7,
+   "failed": 0,
+   "medianMinutes": 5.5,
+   "firesPerWeek": 5,
+   "minutesPerWeek": 27.5,
+   "toolCallsPerRun": 35,
+   "toolCallsPerWeek": 175,
+   "lastRun": "2026-09-15T10:40:39.471000Z",
+   "expected": 6,
+   "hit": 6
+  },
+  {
+   "bot": "Vic Tutor",
+   "botId": "7e4990fe-38aa-4d6d-aa6b-c87baad5f8d1",
+   "name": "Vic weeknight homework check-in",
+   "cron": "15 18 * * *",
+   "enabled": true,
+   "runs": 7,
+   "ok": 7,
+   "failed": 0,
+   "medianMinutes": 0.9,
+   "firesPerWeek": 7,
+   "minutesPerWeek": 6.3,
+   "toolCallsPerRun": 4,
+   "toolCallsPerWeek": 28,
+   "lastRun": "2026-09-15T23:14:01.810000Z",
+   "expected": 6,
+   "hit": 6
+  },
+  {
+   "bot": "Brief",
+   "botId": "84ee99ac-e314-4642-a27b-89b81a591547",
+   "name": "Morning attention brief",
+   "cron": "0 8 * * 1-5",
+   "enabled": true,
+   "runs": 3,
+   "ok": 3,
+   "failed": 0,
+   "medianMinutes": 2.2,
+   "firesPerWeek": 5,
+   "minutesPerWeek": 11.0,
+   "toolCallsPerRun": 20,
+   "toolCallsPerWeek": 100,
+   "lastRun": "2026-09-14T12:43:12.947000Z",
+   "expected": 4,
+   "hit": 2
+  },
+  {
+   "bot": "Jim",
+   "botId": "9abbfaf4-f401-4e70-8619-da598173399a",
+   "name": "Bill Simmons Sunday 107 fifth pick",
+   "cron": "0 11,15 * * 0",
+   "enabled": true,
+   "runs": 2,
+   "ok": 2,
+   "failed": 0,
+   "medianMinutes": 2.3,
+   "firesPerWeek": 2,
+   "minutesPerWeek": 4.6,
+   "toolCallsPerRun": 12.5,
+   "toolCallsPerWeek": 25,
+   "lastRun": "2026-09-13T19:10:37.422000Z",
+   "expected": 1,
+   "hit": 1
+  },
+  {
+   "bot": "Jim",
+   "botId": "9abbfaf4-f401-4e70-8619-da598173399a",
+   "name": "Daily podcast listen brief",
+   "cron": "0 7 * * *",
+   "enabled": true,
+   "runs": 6,
+   "ok": 6,
+   "failed": 0,
+   "medianMinutes": 4.1,
+   "firesPerWeek": 7,
+   "minutesPerWeek": 28.7,
+   "toolCallsPerRun": 13.0,
+   "toolCallsPerWeek": 91,
+   "lastRun": "2026-09-15T11:26:55.111000Z",
+   "expected": 5,
+   "hit": 5
+  },
+  {
+   "bot": "Jim",
+   "botId": "9abbfaf4-f401-4e70-8619-da598173399a",
+   "name": "Jim daily interest note",
+   "cron": "0 20 * * *",
+   "enabled": true,
+   "runs": 8,
+   "ok": 8,
+   "failed": 0,
+   "medianMinutes": 6.9,
+   "firesPerWeek": 7,
+   "minutesPerWeek": 48.3,
+   "toolCallsPerRun": 19.0,
+   "toolCallsPerWeek": 133,
+   "lastRun": "2026-09-16T00:24:03.065000Z",
+   "expected": 7,
+   "hit": 7
+  },
+  {
+   "bot": "Pam",
+   "botId": "e1bfeb52-89c2-48fa-b6dd-b4dcf9ed54e1",
+   "name": "Weekday family calendar scan",
+   "cron": "30 7 * * 1-5",
+   "enabled": true,
+   "runs": 18,
+   "ok": 18,
+   "failed": 0,
+   "medianMinutes": 2.9,
+   "firesPerWeek": 5,
+   "minutesPerWeek": 14.5,
+   "toolCallsPerRun": 19.5,
+   "toolCallsPerWeek": 98,
+   "lastRun": "2026-09-15T11:31:25.444000Z",
+   "expected": 17,
+   "hit": 17
+  },
+  {
+   "bot": "Char Tutor",
+   "botId": "ff5dfcd2-09b9-49dd-952f-14893da73ab0",
+   "name": "Char weeknight homework check-in",
+   "cron": "45 17 * * *",
+   "enabled": true,
+   "runs": 7,
+   "ok": 7,
+   "failed": 0,
+   "medianMinutes": 1.2,
+   "firesPerWeek": 7,
+   "minutesPerWeek": 8.4,
+   "toolCallsPerRun": 3,
+   "toolCallsPerWeek": 21,
+   "lastRun": "2026-09-15T23:14:01.862000Z",
+   "expected": 6,
+   "hit": 6
+  }
+ ],
+ "cards": [
+  {
+   "name": "Engineering Lead",
+   "title": "",
+   "grade": "F",
+   "score": 55,
+   "activeRoutines": 0,
+   "pausedRoutines": 0,
+   "runs": 0,
+   "runsOk": 0,
+   "toolCalls": 0,
+   "toolErrors": 0,
+   "chatEntries": 0,
+   "lastActive": null,
+   "quietDays": null,
+   "agentMinPerWeek": 0,
+   "reasons": [
+    "No routines, tool calls, messages or output files found on this box.",
+    "Engineering Lead has no activity on this box"
+   ],
+   "good": [],
+   "fixes": [
+    "Either give it a routine (a weekly check-in is enough to keep it useful) or archive it."
+   ],
+   "findingIds": [
+    "quiet-13"
+   ]
+  },
+  {
+   "name": "New Bot",
+   "title": "(unfinished)",
+   "grade": "F",
+   "score": 55,
+   "activeRoutines": 0,
+   "pausedRoutines": 0,
+   "runs": 0,
+   "runsOk": 0,
+   "toolCalls": 0,
+   "toolErrors": 0,
+   "chatEntries": 0,
+   "lastActive": null,
+   "quietDays": null,
+   "agentMinPerWeek": 0,
+   "reasons": [
+    "No routines, tool calls, messages or output files found on this box.",
+    "Unfinished bot in the Hatchery: New Bot"
+   ],
+   "good": [],
+   "fixes": [
+    "Ask Dr. EggBot to finish it, or delete it."
+   ],
+   "findingIds": [
+    "quiet-14"
+   ]
+  },
+  {
+   "name": "Jim",
+   "title": "Interests",
+   "grade": "D",
+   "score": 61,
+   "activeRoutines": 3,
+   "pausedRoutines": 0,
+   "runs": 16,
+   "runsOk": 16,
+   "toolCalls": 95,
+   "toolErrors": 11,
+   "chatEntries": 197,
+   "lastActive": "2026-10-09T00:11:02.531041+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 81.6,
+   "reasons": [
+    "watch \u201cBill Simmons Sunday 107 fifth pick\u201d already found its answer but is still scheduled",
+    "11 tool calls errored (11 of 95 logged)",
+    "\u201cJim daily interest note\u201d \u2248 48 agent-minutes/week",
+    "\u201cDaily podcast listen brief\u201d \u2248 29 agent-minutes/week",
+    "50 min of screen-driving (computer use)"
+   ],
+   "good": [
+    "16 of 16 logged routine runs finished OK",
+    "13 of 13 scheduled runs found in the log (on enabled routines)"
+   ],
+   "fixes": [
+    "Suggestion: pause or delete this routine, or give the prompt an end date (\"stop after the pick is found\").",
+    "Suggestion: check the Notion connection is still authorized, and add a line to the routine prompt like \"if Notion errors, say so once and stop instead of retrying\".",
+    "To trim tokens: skip weekends or run every other day if the content allows; cap the run with a short checklist so it stops when the output is verified.",
+    "To trim tokens: skip weekends or run every other day if the content allows; cap the run with a short checklist so it stops when the output is verified.",
+    "Swap repeat browsing for a script or a connector (e.g. turn the PowerSchool or X checks into a saved script)."
+   ],
+   "findingIds": [
+    "watch-Bill Simmons Sunday 107 fifth pick",
+    "err-Jim",
+    "heavy-8",
+    "heavy-10",
+    "heavy-11"
+   ]
+  },
+  {
+   "name": "Oscar",
+   "title": "Finances",
+   "grade": "D",
+   "score": 66,
+   "activeRoutines": 3,
+   "pausedRoutines": 0,
+   "runs": 19,
+   "runsOk": 19,
+   "toolCalls": 333,
+   "toolErrors": 8,
+   "chatEntries": 97,
+   "lastActive": "2026-10-09T00:11:09.351041+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 41.6,
+   "reasons": [
+    "8 tool calls errored (8 of 333 logged)",
+    "\u201cDue-soon bills and money surprises\u201d \u2248 34 agent-minutes/week",
+    "\u201cWeekly household cash snapshot\u201d and \u201cWatch for Kia Finance statement\u201d fire within 20 minutes",
+    "\u201cWatch for Kia Finance statement\u201d and \u201cDue-soon bills and money surprises\u201d fire within 20 minutes"
+   ],
+   "good": [
+    "19 of 19 logged routine runs finished OK",
+    "16 of 18 scheduled runs found in the log (on enabled routines)"
+   ],
+   "fixes": [
+    "Suggestion: check the Google Drive connection is still authorized, and add a line to the routine prompt like \"if Google Drive errors, say so once and stop instead of retrying\".",
+    "To trim tokens: cache the gather step (reuse yesterday's sources and fetch only what's new); cap the run with a short checklist so it stops when the output is verified.",
+    "Merge them into one morning run, or stagger them so the second can reuse the first's results.",
+    "Merge them into one morning run, or stagger them so the second can reuse the first's results."
+   ],
+   "findingIds": [
+    "err-Oscar",
+    "heavy-9",
+    "duplication-3",
+    "duplication-4"
+   ]
+  },
+  {
+   "name": "Boyd Family Times",
+   "title": "",
+   "grade": "C",
+   "score": 73,
+   "activeRoutines": 0,
+   "pausedRoutines": 0,
+   "runs": 0,
+   "runsOk": 0,
+   "toolCalls": 0,
+   "toolErrors": 0,
+   "chatEntries": 0,
+   "lastActive": "2026-10-09T09:24:02.707154+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 0,
+   "reasons": [
+    "No routines and only 9 logged tool calls/messages in the 30 days before the logs end (last seen Fri Oct 9, 0 days before the logs stop; activity since then can't be measured).",
+    "Family Times couldn't print 5 of the last 7 editions"
+   ],
+   "good": [],
+   "fixes": [
+    "Give the newspaper a printer-health preflight (wake the printer or fall back to a second printer) and have it tell Boyd when printing is skipped."
+   ],
+   "findingIds": [
+    "failing-7"
+   ]
+  },
+  {
+   "name": "Dwight",
+   "title": "Code Monkey",
+   "grade": "B",
+   "score": 85,
+   "activeRoutines": 0,
+   "pausedRoutines": 0,
+   "runs": 0,
+   "runsOk": 0,
+   "toolCalls": 1,
+   "toolErrors": 0,
+   "chatEntries": 20,
+   "lastActive": "2026-09-10T22:36:17.054000+00:00",
+   "quietDays": 28,
+   "agentMinPerWeek": 0,
+   "reasons": [
+    "No routines and only 7 logged tool calls/messages in the 30 days before the logs end (last seen Thu Sep 10, 5 days before the logs stop; activity since then can't be measured)."
+   ],
+   "good": [],
+   "fixes": [
+    "Suggestion: give it a small weekly job that fits its role, or archive it to cut clutter."
+   ],
+   "findingIds": []
+  },
+  {
+   "name": "Kelly",
+   "title": "Trends",
+   "grade": "B",
+   "score": 85,
+   "activeRoutines": 0,
+   "pausedRoutines": 0,
+   "runs": 0,
+   "runsOk": 0,
+   "toolCalls": 3,
+   "toolErrors": 0,
+   "chatEntries": 16,
+   "lastActive": "2026-09-11T17:29:04.144000+00:00",
+   "quietDays": 28,
+   "agentMinPerWeek": 0,
+   "reasons": [
+    "No routines and only 11 logged tool calls/messages in the 30 days before the logs end (last seen Fri Sep 11, 4 days before the logs stop; activity since then can't be measured)."
+   ],
+   "good": [],
+   "fixes": [
+    "Suggestion: give it a small weekly job that fits its role, or archive it to cut clutter."
+   ],
+   "findingIds": []
+  },
+  {
+   "name": "Michael",
+   "title": "Chief of Staff",
+   "grade": "B",
+   "score": 85,
+   "activeRoutines": 0,
+   "pausedRoutines": 2,
+   "runs": 30,
+   "runsOk": 30,
+   "toolCalls": 758,
+   "toolErrors": 8,
+   "chatEntries": 664,
+   "lastActive": "2026-10-09T00:10:50.635041+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 0,
+   "reasons": [
+    "Leftover paused copy of \u201cJim daily interest note\u201d",
+    "Leftover paused copy of \u201cMorning attention brief\u201d",
+    "8 tool calls errored (8 of 758 logged)"
+   ],
+   "good": [
+    "30 of 30 logged routine runs finished OK"
+   ],
+   "fixes": [
+    "Delete the paused copy so Jim is the single owner.",
+    "Delete the paused copy so Brief is the single owner.",
+    "Suggestion: check the X connection is still authorized, and add a line to the routine prompt like \"if X errors, say so once and stop instead of retrying\"."
+   ],
+   "findingIds": [
+    "dup-jim daily interest note",
+    "dup-morning attention brief",
+    "err-Michael",
+    "long-Michael"
+   ]
+  },
+  {
+   "name": "Path",
+   "title": "High School Path",
+   "grade": "B",
+   "score": 85,
+   "activeRoutines": 0,
+   "pausedRoutines": 0,
+   "runs": 0,
+   "runsOk": 0,
+   "toolCalls": 0,
+   "toolErrors": 0,
+   "chatEntries": 2,
+   "lastActive": "2026-10-09T10:57:08.479154+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 0,
+   "reasons": [
+    "No routines and only 3 logged tool calls/messages in the 30 days before the logs end (last seen Fri Oct 9, 0 days before the logs stop; activity since then can't be measured)."
+   ],
+   "good": [],
+   "fixes": [
+    "Suggestion: give it a small weekly job that fits its role, or archive it to cut clutter."
+   ],
+   "findingIds": []
+  },
+  {
+   "name": "Pods",
+   "title": "",
+   "grade": "B",
+   "score": 85,
+   "activeRoutines": 0,
+   "pausedRoutines": 0,
+   "runs": 0,
+   "runsOk": 0,
+   "toolCalls": 0,
+   "toolErrors": 0,
+   "chatEntries": 0,
+   "lastActive": "2026-10-09T00:11:06.423041+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 0,
+   "reasons": [
+    "No routines and only 2 logged tool calls/messages in the 30 days before the logs end (last seen Thu Oct 8, 0 days before the logs stop; activity since then can't be measured)."
+   ],
+   "good": [],
+   "fixes": [
+    "Suggestion: give it a small weekly job that fits its role, or archive it to cut clutter."
+   ],
+   "findingIds": []
+  },
+  {
+   "name": "Vic Tutor",
+   "title": "6th Grade Tutor",
+   "grade": "B",
+   "score": 85,
+   "activeRoutines": 1,
+   "pausedRoutines": 0,
+   "runs": 7,
+   "runsOk": 7,
+   "toolCalls": 0,
+   "toolErrors": 0,
+   "chatEntries": 133,
+   "lastActive": "2026-10-09T00:10:47.279041+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 6.3,
+   "reasons": [
+    "Twin routines: \u201cVic weeknight homework check-in\u201d and \u201cChar weeknight homework check-in\u201d",
+    "40 min of screen-driving (computer use)",
+    "\u201cVic weeknight homework check-in\u201d also runs on weekends"
+   ],
+   "good": [
+    "7 of 7 logged routine runs finished OK",
+    "6 of 6 scheduled runs found in the log (on enabled routines)"
+   ],
+   "fixes": [
+    "Move the shared rules into one skill or doc that both prompts reference, and keep only the kid-specific parts in each routine.",
+    "Swap repeat browsing for a script or a connector (e.g. turn the PowerSchool or X checks into a saved script).",
+    "Suggestion: if weekends really are off, Boyd could change the day field to Sun\u2013Thu (0-4) for school nights. Boyd and Miranda decide what the kids' schedule should be."
+   ],
+   "findingIds": [
+    "duplication-2",
+    "heavy-12",
+    "weekend-Vic weeknight homework check-in"
+   ]
+  },
+  {
+   "name": "Brief",
+   "title": "Morning Brief",
+   "grade": "B",
+   "score": 88,
+   "activeRoutines": 1,
+   "pausedRoutines": 0,
+   "runs": 3,
+   "runsOk": 3,
+   "toolCalls": 61,
+   "toolErrors": 0,
+   "chatEntries": 6,
+   "lastActive": "2026-10-09T00:10:47.279041+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 11.0,
+   "reasons": [
+    "\u201cMorning attention brief\u201d missed 2 of 4 scheduled runs"
+   ],
+   "good": [
+    "3 of 3 logged routine runs finished OK",
+    "2 of 4 scheduled runs found in the log (on enabled routines)"
+   ],
+   "fixes": [
+    "Check the schedule is still enabled and whether a run is being skipped (quiet hours, errors, or the bot being busy)."
+   ],
+   "findingIds": [
+    "failing-6"
+   ]
+  },
+  {
+   "name": "Char Tutor",
+   "title": "8th Grade Tutor",
+   "grade": "A",
+   "score": 90,
+   "activeRoutines": 1,
+   "pausedRoutines": 0,
+   "runs": 7,
+   "runsOk": 7,
+   "toolCalls": 0,
+   "toolErrors": 0,
+   "chatEntries": 111,
+   "lastActive": "2026-10-09T00:10:47.279041+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 8.4,
+   "reasons": [
+    "Twin routines: \u201cVic weeknight homework check-in\u201d and \u201cChar weeknight homework check-in\u201d",
+    "\u201cChar weeknight homework check-in\u201d also runs on weekends"
+   ],
+   "good": [
+    "7 of 7 logged routine runs finished OK",
+    "6 of 6 scheduled runs found in the log (on enabled routines)"
+   ],
+   "fixes": [
+    "Move the shared rules into one skill or doc that both prompts reference, and keep only the kid-specific parts in each routine.",
+    "Suggestion: if weekends really are off, Boyd could change the day field to Sun\u2013Thu (0-4) for school nights. Boyd and Miranda decide what the kids' schedule should be."
+   ],
+   "findingIds": [
+    "duplication-2",
+    "weekend-Char weeknight homework check-in"
+   ]
+  },
+  {
+   "name": "Dr. EggBot",
+   "title": "Bot Creator",
+   "grade": "A",
+   "score": 95,
+   "activeRoutines": 2,
+   "pausedRoutines": 0,
+   "runs": 9,
+   "runsOk": 9,
+   "toolCalls": 0,
+   "toolErrors": 0,
+   "chatEntries": 98,
+   "lastActive": "2026-10-09T00:10:45.475041+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 29.1,
+   "reasons": [
+    "\u201ctranscript-healthcheck\u201d and \u201croutine-healthcheck\u201d fire within 20 minutes"
+   ],
+   "good": [
+    "9 of 9 logged routine runs finished OK",
+    "7 of 7 scheduled runs found in the log (on enabled routines)"
+   ],
+   "fixes": [
+    "Merge them into one morning run, or stagger them so the second can reuse the first's results."
+   ],
+   "findingIds": [
+    "duplication-5"
+   ]
+  },
+  {
+   "name": "Pam",
+   "title": "Family Logistics",
+   "grade": "A",
+   "score": 95,
+   "activeRoutines": 1,
+   "pausedRoutines": 0,
+   "runs": 18,
+   "runsOk": 18,
+   "toolCalls": 265,
+   "toolErrors": 4,
+   "chatEntries": 111,
+   "lastActive": "2026-10-09T00:10:44.051040+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 14.5,
+   "reasons": [
+    "4 tool calls errored (4 of 265 logged)"
+   ],
+   "good": [
+    "18 of 18 logged routine runs finished OK",
+    "17 of 17 scheduled runs found in the log (on enabled routines)"
+   ],
+   "fixes": [
+    "Suggestion: check the Gmail (Miranda) connection is still authorized, and add a line to the routine prompt like \"if Gmail (Miranda) errors, say so once and stop instead of retrying\"."
+   ],
+   "findingIds": [
+    "err-Pam"
+   ]
+  },
+  {
+   "name": "Ryan",
+   "title": "Entrepreneur",
+   "grade": "A",
+   "score": 100,
+   "activeRoutines": 1,
+   "pausedRoutines": 0,
+   "runs": 1,
+   "runsOk": 1,
+   "toolCalls": 0,
+   "toolErrors": 0,
+   "chatEntries": 23,
+   "lastActive": "2026-10-09T00:10:49.543041+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 2.1,
+   "reasons": [
+    "Nothing flagged in the logged window."
+   ],
+   "good": [
+    "1 of 1 logged routine runs finished OK"
+   ],
+   "fixes": [],
+   "findingIds": []
+  },
+  {
+   "name": "TokenMax",
+   "title": "",
+   "grade": "A",
+   "score": 100,
+   "activeRoutines": 0,
+   "pausedRoutines": 0,
+   "runs": 0,
+   "runsOk": 0,
+   "toolCalls": 0,
+   "toolErrors": 0,
+   "chatEntries": 0,
+   "lastActive": "2026-10-09T17:32:00.359154+00:00",
+   "quietDays": 0,
+   "agentMinPerWeek": 0,
+   "reasons": [
+    "Nothing flagged in the logged window."
+   ],
+   "good": [],
+   "fixes": [],
+   "findingIds": []
+  }
+ ],
+ "categories": {
+  "duplication": "\ud83d\udd01 Routine duplication",
+  "failing": "\ud83e\uddef Failing or stale",
+  "heavy": "\ud83d\udd25 Token-heavy",
+  "quiet": "\ud83d\ude34 Quiet bots",
+  "data": "\ud83d\udef0\ufe0f Data & coverage"
+ },
+ "sources": {
+  "auditNewest": "2026-09-16T01:35:11.982Z",
+  "chatNewest": "2026-09-16T01:35:51.603000Z",
+  "filesNewest": "2026-10-09T17:32:00.359154Z",
+  "routineTouchNewest": "2026-10-09T00:10:49.687041Z",
+  "transcriptsNewest": "2026-10-09T00:10:59.507041Z"
+ },
+ "botCount": 17,
+ "routineCount": 15,
+ "activeRoutineCount": 13,
+ "runCount": 110
+}
