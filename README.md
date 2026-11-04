@@ -2,7 +2,7 @@
 
 TokenMax build night, Oct 7 2026 (shortlist idea #2, "pstack for bots").
 
-Fleet Doctor reads the bot metadata on this box **read-only** and grades every bot from A to F. Each grade comes with plain-English reasons, what's going well, and **suggested** prompt or cadence fixes. It changes nothing and sends nothing. Boyd decides what to apply. For the kids' tutor routines, Boyd and Miranda decide.
+Fleet Doctor reads the bot metadata on this box **read-only** and grades every bot from A to F. Each grade comes with plain-English reasons, what's going well, and **suggested** prompt or cadence fixes. It changes nothing and sends nothing. Boyd decides what to apply. For the kids' tutor routines, Boyd and Jordan decide.
 
 ## What it checks
 - **Duplicate or overlapping routines**: the same routine name on two bots, prompts that overlap heavily by vocabulary (scored in memory only), and back-to-back routines on one bot.
