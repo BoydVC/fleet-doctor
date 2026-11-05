@@ -27,7 +27,7 @@ ROOT = "/home/box/agent-data/agents"
 TZ = doctor.TZ
 PEN = {"high": 25, "medium": 12, "low": 5, "info": 0}
 SERVER = {"user-Google-drive": "Google Drive", "user-Notion": "Notion", "user-X": "X", "user-Gmail": "Gmail",
-          "user-Gmail--miranda": "Gmail (Miranda)", "user-Slack": "Slack", "user-Google-calendar": "Calendar",
+          "user-Gmail--miranda": "Gmail (Jordan)", "user-Slack": "Slack", "user-Google-calendar": "Calendar",
           "user-Composio": "Composio", "user-Finance-xai": "Finance", "cursor": "built-in"}
 
 
@@ -158,7 +158,7 @@ def build():
             wk = sum(1 for t in doctor.cron_fires(r["cron"], now, now + timedelta(days=7)) if t.weekday() >= 5)
             add("heavy", "low", r["bot"], f"{r['bot']}: “{r['name']}” also runs on weekends",
                 f"The name says weeknight, but cron “{r['cron']}” fires every day: {wk} weekend wake(s) a week (~{round(wk * (r['medianMinutes'] or 0), 1)} agent-min).",
-                "Suggestion: if weekends really are off, Boyd could change the day field to Sun–Thu (0-4) for school nights. Boyd and Miranda decide what the kids' schedule should be.",
+                "Suggestion: if weekends really are off, Boyd could change the day field to Sun–Thu (0-4) for school nights. Boyd and Jordan decide what the kids' schedule should be.",
                 f"weekend-{r['name']}")
         if r["firesPerWeek"] > 7 * 24:
             add("heavy", "high", r["bot"], f"{r['bot']}: “{r['name']}” fires more than hourly", f"{r['firesPerWeek']} wakes a week on cron “{r['cron']}”.",

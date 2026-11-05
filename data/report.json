@@ -120,11 +120,11 @@
    "severity": "low",
    "bot": null,
    "title": "Twin routines: \u201cVic weeknight homework check-in\u201d and \u201cChar weeknight homework check-in\u201d",
-   "detail": "Vic Tutor and Char Tutor run near-identical instructions (49% overlap). That's deliberate (one per kid), but fixes have to be made twice.",
+   "detail": "Sam Tutor and Alex Tutor run near-identical instructions (49% overlap). That's deliberate (one per kid), but fixes have to be made twice.",
    "fix": "Move the shared rules into one skill or doc that both prompts reference, and keep only the kid-specific parts in each routine.",
    "bots": [
-    "Char Tutor",
-    "Vic Tutor"
+    "Alex Tutor",
+    "Sam Tutor"
    ],
    "source": "Bot Island checks"
   },
@@ -189,8 +189,8 @@
     "Pam"
    ],
    "title": "Pam: 4 tool calls errored (4 of 265 logged)",
-   "detail": "By app: Gmail (Miranda) 4. Spread over 4 day(s), Sep 7 to Sep 15 ET. Most common: search_threads (Gmail (Miranda)).",
-   "fix": "Suggestion: check the Gmail (Miranda) connection is still authorized, and add a line to the routine prompt like \"if Gmail (Miranda) errors, say so once and stop instead of retrying\".",
+   "detail": "By app: Gmail (Jordan) 4. Spread over 4 day(s), Sep 7 to Sep 15 ET. Most common: search_threads (Gmail (Jordan)).",
+   "fix": "Suggestion: check the Gmail (Jordan) connection is still authorized, and add a line to the routine prompt like \"if Gmail (Jordan) errors, say so once and stop instead of retrying\".",
    "source": "Fleet Doctor checks"
   },
   {
@@ -236,39 +236,39 @@
    "id": "heavy-12",
    "category": "heavy",
    "severity": "low",
-   "bot": "Vic Tutor",
-   "title": "Vic Tutor: 40 min of screen-driving (computer use)",
+   "bot": "Sam Tutor",
+   "title": "Sam Tutor: 40 min of screen-driving (computer use)",
    "detail": "Driving a desktop takes screenshots every step and is the priciest way to read a page.",
    "fix": "Swap repeat browsing for a script or a connector (e.g. turn the PowerSchool or X checks into a saved script).",
    "bots": [
-    "Vic Tutor"
+    "Sam Tutor"
    ],
    "source": "Bot Island checks"
   },
   {
-   "id": "weekend-Vic weeknight homework check-in",
+   "id": "weekend-Sam weeknight homework check-in",
    "category": "heavy",
    "severity": "low",
-   "bot": "Vic Tutor",
+   "bot": "Sam Tutor",
    "bots": [
-    "Vic Tutor"
+    "Sam Tutor"
    ],
-   "title": "Vic Tutor: \u201cVic weeknight homework check-in\u201d also runs on weekends",
+   "title": "Sam Tutor: \u201cVic weeknight homework check-in\u201d also runs on weekends",
    "detail": "The name says weeknight, but cron \u201c15 18 * * *\u201d fires every day: 2 weekend wake(s) a week (~1.8 agent-min).",
-   "fix": "Suggestion: if weekends really are off, Boyd could change the day field to Sun\u2013Thu (0-4) for school nights. Boyd and Miranda decide what the kids' schedule should be.",
+   "fix": "Suggestion: if weekends really are off, Boyd could change the day field to Sun\u2013Thu (0-4) for school nights. Boyd and Jordan decide what the kids' schedule should be.",
    "source": "Fleet Doctor checks"
   },
   {
-   "id": "weekend-Char weeknight homework check-in",
+   "id": "weekend-Alex weeknight homework check-in",
    "category": "heavy",
    "severity": "low",
-   "bot": "Char Tutor",
+   "bot": "Alex Tutor",
    "bots": [
-    "Char Tutor"
+    "Alex Tutor"
    ],
-   "title": "Char Tutor: \u201cChar weeknight homework check-in\u201d also runs on weekends",
+   "title": "Alex Tutor: \u201cChar weeknight homework check-in\u201d also runs on weekends",
    "detail": "The name says weeknight, but cron \u201c45 17 * * *\u201d fires every day: 2 weekend wake(s) a week (~2.4 agent-min).",
-   "fix": "Suggestion: if weekends really are off, Boyd could change the day field to Sun\u2013Thu (0-4) for school nights. Boyd and Miranda decide what the kids' schedule should be.",
+   "fix": "Suggestion: if weekends really are off, Boyd could change the day field to Sun\u2013Thu (0-4) for school nights. Boyd and Jordan decide what the kids' schedule should be.",
    "source": "Fleet Doctor checks"
   },
   {
@@ -470,9 +470,9 @@
    "hit": 6
   },
   {
-   "bot": "Vic Tutor",
+   "bot": "Sam Tutor",
    "botId": "7e4990fe-38aa-4d6d-aa6b-c87baad5f8d1",
-   "name": "Vic weeknight homework check-in",
+   "name": "Sam weeknight homework check-in",
    "cron": "15 18 * * *",
    "enabled": true,
    "runs": 7,
@@ -578,9 +578,9 @@
    "hit": 17
   },
   {
-   "bot": "Char Tutor",
+   "bot": "Alex Tutor",
    "botId": "ff5dfcd2-09b9-49dd-952f-14893da73ab0",
-   "name": "Char weeknight homework check-in",
+   "name": "Alex weeknight homework check-in",
    "cron": "45 17 * * *",
    "enabled": true,
    "runs": 7,
@@ -889,7 +889,7 @@
    "findingIds": []
   },
   {
-   "name": "Vic Tutor",
+   "name": "Sam Tutor",
    "title": "6th Grade Tutor",
    "grade": "B",
    "score": 85,
@@ -915,12 +915,12 @@
    "fixes": [
     "Move the shared rules into one skill or doc that both prompts reference, and keep only the kid-specific parts in each routine.",
     "Swap repeat browsing for a script or a connector (e.g. turn the PowerSchool or X checks into a saved script).",
-    "Suggestion: if weekends really are off, Boyd could change the day field to Sun\u2013Thu (0-4) for school nights. Boyd and Miranda decide what the kids' schedule should be."
+    "Suggestion: if weekends really are off, Boyd could change the day field to Sun\u2013Thu (0-4) for school nights. Boyd and Jordan decide what the kids' schedule should be."
    ],
    "findingIds": [
     "duplication-2",
     "heavy-12",
-    "weekend-Vic weeknight homework check-in"
+    "weekend-Sam weeknight homework check-in"
    ]
   },
   {
@@ -953,7 +953,7 @@
    ]
   },
   {
-   "name": "Char Tutor",
+   "name": "Alex Tutor",
    "title": "8th Grade Tutor",
    "grade": "A",
    "score": 90,
@@ -977,11 +977,11 @@
    ],
    "fixes": [
     "Move the shared rules into one skill or doc that both prompts reference, and keep only the kid-specific parts in each routine.",
-    "Suggestion: if weekends really are off, Boyd could change the day field to Sun\u2013Thu (0-4) for school nights. Boyd and Miranda decide what the kids' schedule should be."
+    "Suggestion: if weekends really are off, Boyd could change the day field to Sun\u2013Thu (0-4) for school nights. Boyd and Jordan decide what the kids' schedule should be."
    ],
    "findingIds": [
     "duplication-2",
-    "weekend-Char weeknight homework check-in"
+    "weekend-Alex weeknight homework check-in"
    ]
   },
   {
@@ -1036,7 +1036,7 @@
     "17 of 17 scheduled runs found in the log (on enabled routines)"
    ],
    "fixes": [
-    "Suggestion: check the Gmail (Miranda) connection is still authorized, and add a line to the routine prompt like \"if Gmail (Miranda) errors, say so once and stop instead of retrying\"."
+    "Suggestion: check the Gmail (Jordan) connection is still authorized, and add a line to the routine prompt like \"if Gmail (Jordan) errors, say so once and stop instead of retrying\"."
    ],
    "findingIds": [
     "err-Pam"

@@ -70,7 +70,7 @@ for c in rep["cards"]:
     check(f"{c['name']}: has plain-English reasons", bool(c["reasons"]) and all(isinstance(r, str) and r for r in c["reasons"]))
 check("every fix is phrased as a suggestion (no 'I changed'/'applied')", not any(w in json.dumps(rep).lower() for w in ("i changed", "i deleted", "i paused", "was applied")))
 check("data-gap note present", any(f["id"] == "data-gap" for f in rep["findings"]))
-check("kids' routines: Boyd and Miranda decide", all("Boyd and Miranda decide" in f["fix"] for f in rep["findings"] if f["id"].startswith("weekend-")))
+check("kids' routines: Boyd and Jordan decide", all("Boyd and Jordan decide" in f["fix"] for f in rep["findings"] if f["id"].startswith("weekend-")))
 # no prompt text leaks
 leak = False
 for a in autos:
