@@ -246,7 +246,7 @@
    "source": "Bot Island checks"
   },
   {
-   "id": "weekend-Vic weeknight homework check-in",
+   "id": "weekend-Sam weeknight homework check-in",
    "category": "heavy",
    "severity": "low",
    "bot": "Sam Tutor",
@@ -259,7 +259,7 @@
    "source": "Fleet Doctor checks"
   },
   {
-   "id": "weekend-Char weeknight homework check-in",
+   "id": "weekend-Alex weeknight homework check-in",
    "category": "heavy",
    "severity": "low",
    "bot": "Alex Tutor",
@@ -920,7 +920,7 @@
    "findingIds": [
     "duplication-2",
     "heavy-12",
-    "weekend-Vic weeknight homework check-in"
+    "weekend-Sam weeknight homework check-in"
    ]
   },
   {
@@ -981,7 +981,7 @@
    ],
    "findingIds": [
     "duplication-2",
-    "weekend-Char weeknight homework check-in"
+    "weekend-Alex weeknight homework check-in"
    ]
   },
   {
